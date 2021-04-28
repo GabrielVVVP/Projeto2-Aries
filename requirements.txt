@@ -19,12 +19,6 @@ pylint-django==2.4.4
 pylint-plugin-utils==0.6
 pyparsing==2.4.7
 pyquery==1.4.3
-python-qt-binding==0.4.3
-pytz==2021.1
-qt-dotgraph==0.4.2
-qt-gui==0.4.2
-qt-gui-cpp==0.4.2
-qt-gui-py-common==0.4.2
 ratelim==0.1.6
 readme-renderer==29.0
 requests==2.25.1
