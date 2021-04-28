@@ -8,13 +8,9 @@ gunicorn==20.1.0
 ip2geotools==0.1.5
 IP2Location==8.5.1
 isort==5.8.0
-jeepney==0.6.0
 joint-state-publisher==1.15.0
 joint-state-publisher-gui==1.15.0
 keyring==23.0.1
-lazy-object-proxy==1.6.0
-lxml==4.6.3
-Markdown==3.3.4
 maxminddb==2.0.3
 mccabe==0.6.1
 message-filters==1.15.9
