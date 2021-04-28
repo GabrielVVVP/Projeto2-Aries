@@ -26,7 +26,6 @@ requests-toolbelt==0.9.1
 rfc3986==1.4.0
 six==1.15.0
 sqlparse==0.4.1
-urdfdom-py==0.4.5
 urllib3==1.26.4
 virtualenv==20.4.3
 webencodings==0.5.1
