@@ -7,7 +7,7 @@ geocoder==1.38.1
 gunicorn==20.1.0
 ip2geotools==0.1.5
 IP2Location==8.5.1
-isort==5.8.0
+jsonschema==3.2.0
 joint-state-publisher==1.15.0
 joint-state-publisher-gui==1.15.0
 keyring==23.0.1
