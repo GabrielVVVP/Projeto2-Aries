@@ -23,7 +23,6 @@ ratelim==0.1.6
 readme-renderer==29.0
 requests==2.25.1
 requests-toolbelt==0.9.1
-resource-retriever==1.12.6
 rfc3986==1.4.0
 six==1.15.0
 sqlparse==0.4.1
