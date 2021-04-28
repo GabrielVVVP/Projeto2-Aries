@@ -101,17 +101,6 @@ DATABASES = {}
 
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-#        'NAME': 'gis',
-#        'USER': 'gabriel',
-#        'PASSWORD': '93839421',
-#        'HOST': 'localhost',
-#        'PORT': '5432'
-#    }
-#}
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
