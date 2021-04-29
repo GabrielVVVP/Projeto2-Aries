@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   box-shadow: 1px 0px 20px black;
-  background-color: #7006fc;
+  background: #7a2ef5;
 }
 
 .subtitle{
@@ -50,7 +50,8 @@ textarea {
   height: 50%;
   margin: 2% auto;
   border-radius: 10px;
-  background-color: #7006fc;
+  background: #9152f8;
+  padding-bottom: 1%;
 }
 
 .form-card-title{
@@ -111,7 +112,7 @@ textarea {
   display: flex;
   flex-direction:column;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.4);
-  background-color: #7006fc;
+  background: #9152f8;
 }
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
@@ -148,16 +149,28 @@ textarea {
   margin-bottom: 10%;
 }
 
+.card-title3{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  width: 75%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  margin-left: 35%;
+  margin-bottom: 2%;
+}
+
 .mainmenu {
   background-color: DodgerBlue; /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
-  padding-top: 5%;
-  padding-bottom: 5%;
-  width:110%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  width:150%;
   font-size: 16px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
-  margin: 0% 0% 2% 1100%;
+  margin: 0% 0% 2% 100%;
   border-radius: 5px;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.6);
 }
@@ -198,6 +211,7 @@ textarea {
   transition: background-color 0.3s;
   margin-bottom: 2%;
   color: white;
+  font-family: 'Roboto', sans-serif;
 }
 .btn > * {
   position: relative;
@@ -291,8 +305,7 @@ textarea {
   border: none;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.6);
   margin: auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 20%;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -395,4 +408,66 @@ textarea {
 /* Darker background on mouse-over */
 .delbtn:hover {
   background-color: RoyalBlue;
+}
+
+.favbtn {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(113, 0, 141); /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  width:20%;
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.6);
+  margin-left: 40%;
+}
+
+/* Darker background on mouse-over */
+.favbtn:hover {
+  background-color: rgb(170, 0, 212);
+  margin-left: 40%;
+}
+
+label {
+  /* Presentation */
+  font-size: 48px
+}
+
+/* Required Styling */
+
+label input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox {
+  margin-left: 2em;
+  position: relative;
+  cursor: pointer;
+  width: 200%
+}
+
+.custom-checkbox .glyphicon {
+  color: gold;
+  position: absolute;
+  top: 0.4em;
+  left: -1.25em;
+  font-size: 0.75em;
+}
+
+.custom-checkbox .glyphicon-star-empty {
+  color: gray;
+}
+
+.custom-checkbox .glyphicon-star {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.custom-checkbox:hover .glyphicon-star{
+  opacity: 0.5;
+}
+
+.custom-checkbox input[type="checkbox"]:checked ~ .glyphicon-star {
+  opacity: 1;
 }

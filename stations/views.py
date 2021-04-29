@@ -2,20 +2,42 @@ from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import Http404
-from .models import Station, Parameter
+from .models import Station, Parameter, User
 from .serializers import StationSerializer, ParameterSerializer
 import geocoder
 import json
 
-def index(request):
+def login(request):
     if request.method == 'GET':
         return render(request, 'stations/index.html')
+    else:
+        username = request.POST.get('username')
+        if (User.objects.all().filter(name=username).exists()):
+            if (User.objects.all().filter(name=username).first().password==request.POST.get('password')):
+                return redirect('menu')
+            else:
+                return render(request, 'stations/index.html')
+        else:
+            return render(request, 'stations/index.html')    
 
 def signin(request):
     if request.method == 'GET':
         return render(request, 'stations/index5.html')
+    else:
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        if (User.objects.all().filter(name=username).exists()==False):
+            if (User.objects.all().filter(email=email).exists()==False):
+                station = User(name=username,email=email,password=password,favorites="")
+                station.save()
+                return redirect('index')
+            else:
+                return render(request, 'stations/index5.html')    
+        else:
+            return render(request, 'stations/index5.html')        
 
-def index2(request):
+def menu(request):
     if request.method == 'POST':
         statname = request.POST.get('station-name')
         if (Station.objects.all().filter(name=statname).exists()==False)and(statname!=""):
@@ -53,11 +75,14 @@ def check_data(request,station,name,type_chart='line'):
         else:
             dates_list = [""]  
         return render(request, 'stations/index2.html', {'station': check_station, 'parameter':check_parameter, 'values':values_list, 'dates':dates_list, 'type':type_chart})
+    else:
+        return redirect('menu')
 
 def check_location(request,station,name):
     check_station = Station.objects.all().filter(name=station).first()
     check_parameter = Parameter.objects.all().filter(name=name,station=check_station).first()
-    coordinates = check_station.location
+    coordinates = check_parameter.location
+    #coordinates = check_station.location
     f = open('stations/k.json', "r")
     api_key = json.loads(f.read())["key"]
     return render(request, 'stations/index3.html', {'station': check_station, 'parameter': check_parameter,'coordinates':coordinates, 'key':api_key})
@@ -134,6 +159,7 @@ def api_values(request, parameter_id):
                 default_parameter.dates = default_parameter.dates+","+new_data['dates']
             else:    
                 default_parameter.dates = new_data['dates']
+            default_parameter.location = new_data['location'] 
             default_parameter.save()   
             serialized_parameter = ParameterSerializer(default_parameter)
         else:

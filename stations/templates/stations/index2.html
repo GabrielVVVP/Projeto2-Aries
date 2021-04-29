@@ -98,7 +98,7 @@ $(document).ready(function(){
         <div class="card2">
             <form class="delcont" method="GET" action="/menu/delete/parameter/{{parameter.id}}">
                 <button class="delbtn" type="submit"><i class="fa fa-trash"></i></button>
-            </form> 
+            </form>   
             <h3 class="card-title2">{{ station.name }}</h3>
             <canvas id="myChart" width="100" height="100"></canvas>
             <div class="dropdown">
@@ -111,6 +111,10 @@ $(document).ready(function(){
             </div>
             <form class="dropdown" method="GET" action="/menu/geolocation/{{station.name}}/{{parameter.name}}">
                 <button class="dropbtn">Localização</button>
+            </form>
+            <form class="dropdown" method="POST" action="">
+                {% csrf_token %}
+                <button class="dropbtn" type="submit">Inscrever</button>
             </form>
         </div>
     </div>   
