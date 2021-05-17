@@ -11,7 +11,7 @@
 </div>
 
 <main class="container">
-    <form class="form-card" method="POST" action="">
+    <form class="form-card" method="POST" action="/menu/{{user_id}}/">
         {% csrf_token %}
         <p class="form-card-title">Aries Micro-Estações</p>
         <img src="{% static 'stations/img/Arduino.png' %}" class="station-create" />
@@ -27,7 +27,7 @@
     <div class="card-container">
     {% for station in stations %}
         <div class="card">
-            <form class="delcont" method="GET" action="/menu/delete/station/{{station.id}}">
+            <form class="delcont" method="GET" action="/menu/{{user_id}}/delete/station/{{station.id}}">
                 <button class="delbtn" type="submit"><i class="fa fa-trash"></i></button>
             </form>
             <p class="card-title">{{station.name}}</p>
@@ -41,7 +41,7 @@
                 {% endfor %}
                 </div>
             </div>
-            <form method="POST" action="/menu/addparam/{{station.name}}">
+            <form method="POST" action="/menu/{{user_id}}/addparam/{{station.name}}">
                 {% csrf_token %}
                 <input
                 class="addparam"

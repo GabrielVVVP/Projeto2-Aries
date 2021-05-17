@@ -1,1 +1,5 @@
-{"key": "AIzaSyDbZEBezDGnm94sCOr7SsrLFBG8XJQaFeQ"}
+{"key": "AIzaSyDbZEBezDGnm94sCOr7SsrLFBG8XJQaFeQ",
+"mailgunkey": "026f27dc9bfff8aa797b4877b4427ed3-2a9a428a-c738a458",
+"mailgundom" : "https://api.mailgun.net/v3/sandboxbe47c17f95ca4bc3ba1b6eeb4a469786.mailgun.org/messages",
+"mailgunsend" : "mailgun@sandboxbe47c17f95ca4bc3ba1b6eeb4a469786.mailgun.org"
+}
