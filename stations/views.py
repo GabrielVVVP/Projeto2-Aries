@@ -259,7 +259,7 @@ def api_values(request, parameter_id):
                             api_dom = readjson["mailgundom"]
                             api_send = readjson["mailgunsend"]
                             user_mail = user.email
-                            subjects = "Alert! {} exceeded defined Threshold!".format(default_parameter.name)
+                            subjects = "Alert! {} has exceeded defined Threshold!".format(default_parameter.name)
                             texts = "The parameter {} has exceeded the defined threshold {}, with a value of {}".format(default_parameter.name,par_id[1],new_data['readings'])
                             print(send_message(api_key,api_dom,api_send,user_mail,subjects,texts).content)
 
