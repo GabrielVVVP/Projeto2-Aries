@@ -35,7 +35,6 @@ ALLOWED_HOSTS = ['safe-spire-18268.herokuapp.com', 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'stations.apps.StationsConfig',
     'rest_framework',
-    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +44,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
