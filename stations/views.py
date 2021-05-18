@@ -144,15 +144,22 @@ def subscribe(request,user_id,station,name):
             pass
         return redirect(reverse('menu', kwargs={"user_id": user_id}))   
 
-def send_message(api_key,api_dom,api_send,user_mail,subject,texts):
-    from_origin = 'Aries  Micro-Esta<{}>'.format(api_send)
+def send_message(api_key,api_dom,api_send,user_mail,subject,param,thres,valor,site):
+    from_origin = 'Aries Micro-Estações <{}>'.format(api_send)
     return requests.post(
         api_dom,
         auth=("api", api_key),
         data={"from": from_origin,
               "to": [user_mail],
               "subject": subject,
-              "text": texts})  
+              "template": "alert",
+			  "v:parametro": param,
+              "v:threshold": thres,
+              "v:valor": valor,
+              "v:site": site
+              })
+              
+                
 
 def delete_station(request,user_id,station_id):
     del_entry = Station.objects.all().filter(id=station_id).first()
@@ -259,9 +266,11 @@ def api_values(request, parameter_id):
                             api_dom = readjson["mailgundom"]
                             api_send = readjson["mailgunsend"]
                             user_mail = user.email
+                            user_id = user.id
+                            station_mail = Station.objects.all().filter(id=default_parameter.station.id).first()
                             subjects = "Alert! {} has exceeded defined Threshold!".format(default_parameter.name)
-                            texts = "The parameter {} has exceeded the defined threshold {}, with a value of {}".format(default_parameter.name,par_id[1],new_data['readings'])
-                            send_message(api_key,api_dom,api_send,user_mail,subjects,texts)
+                            site = "https://safe-spire-18268.herokuapp.com/menu/{}/data/{}/{}".format(user_id,station_mail.name,default_parameter.name)
+                            send_message(api_key,api_dom,api_send,user_mail,subjects,default_parameter.name,par_id[1],new_data['readings'],site)
 
             serialized_parameter = ParameterSerializer(default_parameter)
         else:

@@ -28,7 +28,10 @@
                 <a href="/menu/{{user_id}}/data/{{station.name}}/{{parameter.name}}/bar" method="GET">bar</a>
                 <a href="/menu/{{user_id}}/data/{{station.name}}/{{parameter.name}}/doughnut" method="GET">doughnut</a>
                 </div>
-            </div>    
+            </div>
+            <form class="dropdown" method="GET" action="/menu/{{user_id}}/subscribe/{{station.name}}/{{parameter.name}}">
+                <button class="dropbtn" type="submit">Inscrever</button>
+            </form>    
         </div>
     </div>
 </main>
